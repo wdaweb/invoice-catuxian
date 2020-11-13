@@ -12,7 +12,7 @@
 <body>
 
 
-<h3 class="text-center pt-3">統一發票兌獎與紀錄</h3>
+<h3 class="text-center pt-3">統一發票對獎與紀錄</h3>
 
 <div class="container">
     <div class="col-8 d-flex justify-content-around mx-auto border p-1 mt-3">
@@ -45,7 +45,6 @@
     <?php
     if(isset($_GET['do'])){
         $file=$_GET['do'].".php";
-        echo $file;
         include $file;
     }else{
         include "main.php";
