@@ -8,6 +8,13 @@
     <title>統一發票紀錄及對獎系統</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css">
 </head>
+<style>
+    .number{
+        font-size: 1.2rem;
+        color:red;
+        font-weight: bolder;
+    }
+</style>
 
 <body>
 
