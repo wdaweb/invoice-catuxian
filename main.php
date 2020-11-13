@@ -1,30 +1,4 @@
-<h3 class="text-center pt-3">統一發票兌獎與紀錄</h3>
 
-<div class="container">
-    <div class="col-8 d-flex justify-content-around mx-auto border p-1 mt-3">
-        <?php
-        $month = [
-            1 => "1,2月",
-            2 => "3,4月",
-            3 => "5,6月",
-            4 => "7,8月",
-            5 => "9,10月",
-            6 => "11,12月",
-        ];
-        $m = ceil(date("m") / 2);
-        ?>
-        <div class="text-center"><?= $month[$m]; ?></div>
-        <div class="text-center">
-            <a href="">當期發票</a>
-        </div>
-        <div class="text-center">
-            <a href="">對獎</a>
-        </div>
-        <div class="text-center">
-            <a href="">輸入獎號</a>
-        </div>
-    </div>
-    <div class="col-8 d-flex justify-content-around mx-auto border p-3">
         <form action="api/add_invoice.php" method="post">
             <div class="pt-3">日期：<input type="date" name="date" ></div>
             <div class="pt-3">
@@ -51,6 +25,3 @@
                 <input type="submit" value="送出">
             </div>
         </form>
-    </div>
-</div>
-</div>

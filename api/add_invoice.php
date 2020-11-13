@@ -12,6 +12,6 @@ $sql="insert into invoices (`".implode("`,`",array_keys($_POST))."`) values('".i
 
 $pdo->query($sql);
 
-header("location:../index.php");
+header("location:../index.php?do=invoice_list");
 
 ?>
