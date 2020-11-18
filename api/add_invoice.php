@@ -7,6 +7,8 @@ include_once "../base.php";
 echo "<pre>";
 print_r(array_keys($_POST));
 echo "</pre>";
+echo implode("','",$_POST);
+
 
 $sql="insert into invoices (`".implode("`,`",array_keys($_POST))."`) values('".implode("','",$_POST)."')";
 

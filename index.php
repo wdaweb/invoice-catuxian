@@ -48,7 +48,7 @@
             <a href="index.php">回首頁</a>
         </div>
     </div>
-    <div class="col-lg-8 col-md-12 d-flex justify-content-around mx-auto border p-3">
+    <div class="col-lg-8 col-md-12 d-flex justify-content-around mx-auto flex-column border p-3">
     <?php
     if(isset($_GET['do'])){
         $file=$_GET['do'].".php";
