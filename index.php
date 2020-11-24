@@ -1,3 +1,4 @@
+<?php include_once "base.php";?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -65,3 +66,4 @@
 </body>
 
 </html>
+<?php $_SESSION['err']=[];?>

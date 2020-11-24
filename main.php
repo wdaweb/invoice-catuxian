@@ -16,6 +16,8 @@
                 發票號碼：
                 <input type="text" name="code" style="width: 50px;">
                 <input type="number" name="number" style="width: 150px;">
+                <?php errFeedBack('number');?>
+                <?php errFeedBack('code');?>
             </div>
             <div class="pt-3">
                 發票金額：
