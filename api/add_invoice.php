@@ -4,23 +4,26 @@
 
 include_once "../base.php";
 $_SESSION['err']=[];
-
-echo "<pre>";
-print_r(array_keys($_POST));
-echo "</pre>";
+// $period=ceil((explode("-",$_POST['date'])[1])/2);
+// echo $period;
 echo "<pre>";
 print_r($_POST);
 echo "</pre>";
-
-is_empty('number','發票號碼的欄位必填');
-is_empty('code','發票英文的欄位必填');
-
-$sql="insert into invoices (`".implode("`,`",array_keys($_POST))."`) values('".implode("','",$_POST)."')";
-errFeedBack('number');
+// echo "(`".implode("`,`",array_keys($_POST)) .",`period"."`) values('".implode("','",$_POST)."{$period}"."')";
+check_date('date');
+check_code('code');
+check_num('number');
+check_pay('payment');
+print_r($_SESSION['err']);
+// $sql="insert into invoices (`".implode("`,`",array_keys($_POST))."`) values('".implode("','",$_POST)."')";
+errFeedBack('date');
 errFeedBack('code');
+errFeedBack('number');
+errFeedBack('payment');
+
 // $pdo->query($sql);
 
-header("location:../index.php?do=invoice_list");
+
 if(empty($_SESSION['err'])){
     // $pdo->exec($sql);
     header("location:../index.php?do=invoice_list");

@@ -1,5 +1,5 @@
 <?php
-include "base.php";
+include_once "base.php";
 if(isset($_GET['pd'])){
     $year=explode("-",$_GET['pd'])[0];
     $period=explode("-",$_GET['pd'])[1];
