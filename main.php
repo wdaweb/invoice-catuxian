@@ -2,7 +2,7 @@
         <form action="api/add_invoice.php" method="post">
             <div class="pt-3">日期：<input type="date" name="date" >
                 <div class="tip">
-                    <?php errFeedBack('date');?>
+                    <?php echo errFeedBack('date');?>
                 </div>
             </div>
             <!-- <div class="pt-3">
@@ -21,17 +21,17 @@
                 <input type="text" name="code" maxlength="2" style="width: 50px;">
                 <input type="number" name="number" style="width: 150px;">
                 <div class="tip">
-                <?php errFeedBack('code');?>
+                <?php echo errFeedBack('code');?>
                 </div>
                 <div class="tip">
-                    <?php errFeedBack('number');?>
+                    <?php echo errFeedBack('number');?>
                 </div>
             </div>
             <div class="pt-3">
                 發票金額：
                 <input type="number" name="payment">
                 <div class="tip">
-                    <?php errFeedBack('payment');?>
+                    <?php echo errFeedBack('payment');?>
                 </div>
             </div >
             <div class="text-center pt-3">

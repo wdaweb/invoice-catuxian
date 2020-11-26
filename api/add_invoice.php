@@ -15,13 +15,17 @@ print_r($_SESSION['err']);
 // $sql="insert into invoices (`".implode("`,`",array_keys($_POST))."`) values('".implode("','",$_POST)."')";
 
 // $pdo->query($sql);
-errFeedBack('code');
-errFeedBack('date');
-errFeedBack('number');
-errFeedBack('payment');
+echo "<br>";
+echo errFeedBack('code');
+echo "<br>";
+echo errFeedBack('date');
+echo "<br>";
+echo errFeedBack('number');
+echo "<br>";
+echo errFeedBack('payment');
 
 if(empty($_SESSION['err'])){
-    // $pdo->exec($sql);
+    $pdo->exec($sql);
     header("location:../index.php?do=invoice_list");
 }else{
     header("location:../index.php");

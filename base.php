@@ -22,7 +22,7 @@ function check($data){
             $_SESSION['err']['date'][]="日期欄位不得為空";
         case (strlen($data['code'])!=2||is_numeric('code')):
             $_SESSION['err']['code'][]="第一欄請輸入兩個大寫英文字母";
-        case (strlen($data['number'])!=8&&is_numeric($data['number'])!=1):
+        case (strlen($data['number'])!=8&&!is_numeric($data['number'])):
             $_SESSION['err']['number'][]='第二欄請輸入8個0~9的數字';
         case empty($data['payment']):
             $_SESSION['err']['payment'][]='請輸入金額';
@@ -98,7 +98,7 @@ function del($table,$id){
 function errFeedBack($field){
     if(!empty($_SESSION['err'][$field])){
         foreach($_SESSION['err'][$field] as $err){
-            echo $err;
+            return $err;
             // echo "<div style='font-size:12px;color:red;>".$err."</div>";
         }
     }
