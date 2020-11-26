@@ -7,5 +7,7 @@
         header("location:default.php");
     }else{
         echo "登入失敗";
+        header("location:index.php?false=1");
+        
     }
 ?>
