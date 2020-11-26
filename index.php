@@ -6,7 +6,7 @@ include "header.php";
     <form action="check.php" method="post">
         <div class="tip">
         <?php
-            if($_GET['false']==1){
+            if(isset($_GET['false'])){
                 echo "帳號或密碼錯誤";
             }
         ?>
