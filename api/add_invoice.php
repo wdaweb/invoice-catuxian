@@ -10,19 +10,15 @@ echo "<pre>";
 print_r($_POST);
 echo "</pre>";
 // echo "(`".implode("`,`",array_keys($_POST)) .",`period"."`) values('".implode("','",$_POST)."{$period}"."')";
-check_date('date');
-check_code('code');
-check_num('number');
-check_pay('payment');
+check($_POST);
 print_r($_SESSION['err']);
 // $sql="insert into invoices (`".implode("`,`",array_keys($_POST))."`) values('".implode("','",$_POST)."')";
-errFeedBack('date');
-errFeedBack('code');
-errFeedBack('number');
-errFeedBack('payment');
 
 // $pdo->query($sql);
-
+errFeedBack('code');
+errFeedBack('date');
+errFeedBack('number');
+errFeedBack('payment');
 
 if(empty($_SESSION['err'])){
     // $pdo->exec($sql);
