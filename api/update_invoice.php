@@ -14,5 +14,5 @@
         where 
             `id`='{$_POST['id']}'";
     $pdo->exec($sql);
-    header("location:../index.php?do=invoice_list");
+    header("location:../default.php?do=invoice_list");
 ?>
