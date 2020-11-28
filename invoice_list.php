@@ -1,6 +1,6 @@
 <?php
 include_once "base.php";
-
+//以網址收到的參數判斷要顯示何時的發票以及依照甚麼排序
 if(isset($_GET['pd'])&&isset($_GET['orderby'])){
     $year=explode("-",$_GET['pd'])[0];
     $period=explode("-",$_GET['pd'])[1];
@@ -12,6 +12,10 @@ if(isset($_GET['pd'])&&isset($_GET['orderby'])){
             $rows=$pdo->query("select * from `invoices` where period={$period} order by payment desc")->fetchAll();
         break;
     }
+}else if(isset($_GET['pd'])){
+    $year=explode("-",$_GET['pd'])[0];
+    $period=explode("-",$_GET['pd'])[1];
+    $rows=$pdo->query("select * from `invoices` where period={$period}");
 }else if(isset($_GET['orderby'])){
     switch ($_GET['orderby']){
         case "date":
