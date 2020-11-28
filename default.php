@@ -5,8 +5,8 @@
 
 <h3 class="text-center pt-3">統一發票對獎與紀錄</h3>
 
-<div class="container">
-    <div class="col-lg-8 col-md-12 d-flex justify-content-around mx-auto border p-1 mt-3">
+<div class="container col-lg-8">
+    <div class="col-md-12 d-flex justify-content-around mx-auto border p-1 mt-3">
         <?php
         $month = [
             1 => "1,2月",
@@ -32,7 +32,7 @@
             <a href="?do=main">新增發票</a>
         </div>
     </div>
-    <div class="col-lg-8 col-md-12 d-flex justify-content-around mx-auto flex-column border p-3">
+    <div class="col-md-12 d-flex justify-content-around mx-auto flex-column border p-3">
     <?php
     if(isset($_GET['do'])){
         $file=$_GET['do'].".php";
