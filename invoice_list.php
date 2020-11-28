@@ -38,8 +38,24 @@ if(isset($_GET['pd'])&&isset($_GET['orderby'])){
 <table class="table text-center">
     <tr>
         <td>發票號碼</td>
-        <td><a href="?do=invoice_list&pd=<?php echo explode("-",$_GET['pd'])[0]."-".explode("-",$_GET['pd'])[1];?>&orderby=date">消費日期</a></td>
-        <td><a href="?do=invoice_list&pd=<?php echo explode("-",$_GET['pd'])[0]."-".explode("-",$_GET['pd'])[1];?>&orderby=payment">消費金額</a></td>
+        <td><a href="?do=invoice_list<?php 
+        if(isset($_GET['pd'])){
+            echo "&pd=".explode("-",$_GET['pd'])[0]."-".explode("-",$_GET['pd'])[1]."&orderby=date";
+        }else{
+            echo "&orderby=date";
+        }
+        ?>
+        ">
+        消費日期</a></td>
+        <td><a href="?do=invoice_list<?php 
+        if(isset($_GET['pd'])){
+            echo "&pd=".explode("-",$_GET['pd'])[0]."-".explode("-",$_GET['pd'])[1]."&orderby=payment";
+        }else{
+            echo "&orderby=payment";
+        }
+        ?>
+        ">
+        消費金額</a></td>
         <td>操作</td>
     </tr>
     <?php
