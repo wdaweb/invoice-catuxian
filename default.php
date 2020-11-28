@@ -18,7 +18,7 @@
         ];
         $m = ceil(date("m") / 2);
         ?>
-        <div class="text-center"><?= $month[$m]; ?></div>
+
         <div class="text-center">
             <a href="?do=invoice_list">當期發票</a>
         </div>
