@@ -1,5 +1,5 @@
 <?php
-    include "base.php";
+    include_once "base.php";
 
     $inv_id=$_GET['id'];
     //echo "select * from invoice where id='$inv_id'";
