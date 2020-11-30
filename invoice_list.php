@@ -41,6 +41,7 @@ if(isset($_GET['pd'])&&isset($_GET['orderby'])){
 
 <table class="table text-center">
     <tr>
+        <td>序號</td>
         <td>發票號碼</td>
         <td><a href="?do=invoice_list<?php 
         if(isset($_GET['pd'])){
@@ -63,25 +64,43 @@ if(isset($_GET['pd'])&&isset($_GET['orderby'])){
         <td>操作</td>
     </tr>
     <?php
-        foreach($rows as $row){
-    ?>
+            if(isset($_GET['pageitems'])){
+                $under=($_GET['pageitems']-1)*25+1;
+                $above=$_GET['pageitems']*25;
+            }else{
+                $under=1;
+                $above=25;
+            }
+            for($i=$under;$i<=$above&&$i<=count($rows);$i++){
+            ?>
     <tr>
-        <td><?=$row['code'].$row['number'];?></td>
-        <td><?=$row['date'];?></td>
-        <td><?=$row['payment'];?></td>
+        <td><?=$i?></td>
+        <td><?=$rows[$i-1]['code'].$rows[$i-1]['number'];?></td>
+        <td><?=$rows[$i-1]['date'];?></td>
+        <td><?=$rows[$i-1]['payment'];?></td>
         <td>
-            <a href="?do=edit_invoice&id=<?=$row['id'];?>">
+            <a href="?do=edit_invoice&id=<?=$rows[$i-1]['id'];?>">
                 <button class="btn btn-sm btn-primary">編輯</button>
             </a>
-            <a href="?do=del_invoice&id=<?=$row['id'];?>">
+            <a href="?do=del_invoice&id=<?=$rows[$i-1]['id'];?>">
                 <button class="btn btn-sm btn-danger">刪除</button>
             </a>
-            <a class="text-light" href="?do=award&id=<?=$row['id'];?>">
+            <a class="text-light" href="?do=award&id=<?=$rows[$i-1]['id'];?>">
                 <button class="btn btn-sm btn-success">對獎</button>
             </a>
         </td>
     </tr>
     <?php
+            
         }
     ?>
 </table>
+<ul class="pagination">
+<?php
+    $pagecount=ceil(count($rows)/25);//判斷需要印出的列數
+    
+    for($i=1;$i<=$pagecount;$i++){
+        echo "<li class='page-item'><a href='?pageitems={$i}&do=invoice_list' class='page-link'>{$i}</a></li>";
+    }
+?>
+</ul>
