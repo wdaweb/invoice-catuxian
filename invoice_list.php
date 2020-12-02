@@ -6,7 +6,7 @@ if(isset($_GET['pd'])){
     //當收到pd這個變數時，會找出該期的資料
     $year=explode("-",$_GET['pd'])[0];
     $period=explode("-",$_GET['pd'])[1];
-    $rows=$pdo->query("select * from `invoices` where period={$period}")->fetchAll();
+    $rows=$pdo->query("select * from `invoices` where period={$period} order by date desc")->fetchAll();
     setcookie("pd",$_GET['pd'],time()+3600);
 }else if(isset($_COOKIE['pd'])){
     //當

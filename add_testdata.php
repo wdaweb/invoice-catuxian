@@ -17,16 +17,21 @@ for($i=0;$i<500;$i++){
     // echo $date."<br>";
     $period=ceil(explode("-",$date)[1]/2);
     // echo $period;
+    $names=['Jack','Rose'];
+    $owner=$names[rand(0,1)];
+
     $fdata=[
         'code'=>$code,
         'number'=>$number,
         'payment'=>$payment,
         'date'=>$date,
-        'period'=>$period
+        'period'=>$period,
+        'owner'=>$owner
     ];
     $sql="insert into invoices (`".implode("`,`",array_keys($fdata))."`) values('".implode("','",$fdata)."')";
     $pdo->exec($sql);
-}    
+} 
+
 echo "<hr>";
 echo "資料新增完成";
 echo date("Y-m-d H:i:s");

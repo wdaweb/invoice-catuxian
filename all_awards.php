@@ -15,17 +15,10 @@
     $award_numbers=$pdo->query("SELECT * FROM `award_numbers` WHERE `period`='{$_GET['period']}' && `year`='{$_GET['year']}'")->fetchAll(PDO::FETCH_ASSOC);
 
     if($award_numbers){
-        // echo "<pre>";
-        // print_r($award_numbers);
-        // echo "</pre>";
-        //開始對獎
+        
         $all_res=-1;
         foreach($all_invoices as $inv){
-            //echo "select * from invoice where id='$inv_id'";
             $number=$inv['number'];
-            /* echo "<pre>";
-            print_r($invoice);
-            echo "</pre>"; */
             
             //找出獎號
             /**
