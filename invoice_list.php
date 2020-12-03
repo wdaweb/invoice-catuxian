@@ -75,17 +75,22 @@ else if(isset($_GET['pd'])){
 </table>
 <ul class="pagination mx-auto">
 <?php
+    $pagecount=ceil(count($rows)/10);//判斷需要印出的列數
     if(!isset($_GET['pageitems'])){
         $_GET['pageitems']=1;
     }
     if($_GET['pageitems']>2){
         $underpage=$_GET['pageitems']-2;
         $abovepage=$_GET['pageitems']+2;
-    }else{
+        if(($_GET['pageitems']+2)>$pagecount){
+            $underpage=$pagecount-4;
+            $abovepage=$pagecount;
+        }
+    }
+    else{
         $underpage=1;
         $abovepage=5;
     }
-    $pagecount=ceil(count($rows)/10);//判斷需要印出的列數
     for($i=$underpage;$i<=$abovepage&&$i<=$pagecount;$i++){
         echo "<li class='page-item'><a href='?pageitems={$i}&do=invoice_list' class='page-link'>{$i}</a></li>";
     }
