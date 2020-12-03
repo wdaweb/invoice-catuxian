@@ -13,11 +13,14 @@ if(isset($_GET['pd'])){
     $year=explode("-",$_COOKIE['pd'])[0];
     $period=explode("-",$_COOKIE['pd'])[1];
     $rows=$pdo->query("select * from `invoices` where period={$period}  order by date desc")->fetchAll();
+}else if(isset($_GET['pd'])){
+    $rows=$pdo->query("select * from `invoices` order by date desc")->fetchAll();
+    setcookie("pd","",time()-3600);
 }
 else{
     //沒有收到變數時，找出全部的資料
     $rows=$pdo->query("select * from `invoices` order by date desc")->fetchAll();
-    echo "select * from `invoices` order by date desc";
+    // echo "select * from `invoices` order by date desc";
 }
 
 ?>
@@ -73,8 +76,18 @@ else{
 </table>
 <ul class="pagination mx-auto">
 <?php
+    if(!isset($_GET['pageitems'])){
+        $_GET['pageitems']=1;
+    }
+    if($_GET['pageitems']>2){
+        $underpage=$_GET['pageitems']-2;
+        $abovepage=$_GET['pageitems']+2;
+    }else{
+        $underpage=1;
+        $abovepage=5;
+    }
     $pagecount=ceil(count($rows)/25);//判斷需要印出的列數
-    for($i=1;$i<=$pagecount;$i++){
+    for($i=$underpage;$i<=$abovepage;$i++){
         echo "<li class='page-item'><a href='?pageitems={$i}&do=invoice_list' class='page-link'>{$i}</a></li>";
     }
 ?>
