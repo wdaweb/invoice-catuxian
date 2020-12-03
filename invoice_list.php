@@ -1,8 +1,11 @@
 <?php
 include_once "base.php";
 
-        
-if(isset($_GET['pd'])){
+if(isset($_GET['find'])){
+    $rows=$pdo->query("select * from `invoices` order by date desc")->fetchAll();
+    setcookie("pd","",time()-3600);
+}   
+else if(isset($_GET['pd'])){
     //當收到pd這個變數時，會找出該期的資料
     $year=explode("-",$_GET['pd'])[0];
     $period=explode("-",$_GET['pd'])[1];
@@ -13,11 +16,7 @@ if(isset($_GET['pd'])){
     $year=explode("-",$_COOKIE['pd'])[0];
     $period=explode("-",$_COOKIE['pd'])[1];
     $rows=$pdo->query("select * from `invoices` where period={$period}  order by date desc")->fetchAll();
-}else if(isset($_GET['pd'])){
-    $rows=$pdo->query("select * from `invoices` order by date desc")->fetchAll();
-    setcookie("pd","",time()-3600);
-}
-else{
+}else{
     //沒有收到變數時，找出全部的資料
     $rows=$pdo->query("select * from `invoices` order by date desc")->fetchAll();
     // echo "select * from `invoices` order by date desc";
