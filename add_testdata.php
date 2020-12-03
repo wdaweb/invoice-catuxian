@@ -5,7 +5,7 @@
 include_once "base.php";
 echo "資料產生中";
 echo date("Y-m-d H:i:s")."<br>";
-for($i=0;$i<500;$i++){
+for($i=0;$i<;$i++){
 
     $code=implode("",[chr(rand(65,90)),chr(rand(65,90))]);
     // echo $code;

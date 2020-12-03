@@ -43,11 +43,11 @@ else if(isset($_GET['pd'])){
     </tr>
     <?php
             if(isset($_GET['pageitems'])){
-                $under=($_GET['pageitems']-1)*25+1;
-                $above=$_GET['pageitems']*25;
+                $under=($_GET['pageitems']-1)*10+1;
+                $above=$_GET['pageitems']*10;
             }else{
                 $under=1;
-                $above=25;
+                $above=10;
             }
             for($i=$under;$i<=$above&&$i<=count($rows);$i++){
             ?>
@@ -85,8 +85,8 @@ else if(isset($_GET['pd'])){
         $underpage=1;
         $abovepage=5;
     }
-    $pagecount=ceil(count($rows)/25);//判斷需要印出的列數
-    for($i=$underpage;$i<=$abovepage;$i++){
+    $pagecount=ceil(count($rows)/10);//判斷需要印出的列數
+    for($i=$underpage;$i<=$abovepage&&$i<=$pagecount;$i++){
         echo "<li class='page-item'><a href='?pageitems={$i}&do=invoice_list' class='page-link'>{$i}</a></li>";
     }
 ?>
