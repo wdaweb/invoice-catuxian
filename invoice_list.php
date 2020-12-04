@@ -57,10 +57,10 @@ else if(isset($_GET['pd'])){
         <td><?=$rows[$i-1]['date'];?></td>
         <td><?=$rows[$i-1]['payment'];?></td>
         <td>
-            <a href="?do=edit_invoice&id=<?=$rows[$i-1]['id'];?>">
+            <a href="?do=edit_invoice&id=<?=$rows[$i-1]['id'];?>" target="_blank">
                 <button class="btn btn-sm btn-primary">編輯</button>
             </a>
-            <a href="?do=del_invoice&id=<?=$rows[$i-1]['id'];?>">
+            <a href="?do=del_invoice&id=<?=$rows[$i-1]['id'];?>" target="_blank">
                 <button class="btn btn-sm btn-danger">刪除</button>
             </a>
             <a class="text-light" href="?do=award&id=<?=$rows[$i-1]['id'];?>">

@@ -15,8 +15,6 @@
         <button class="btn-danger">
             <a href="api/del.php?&id=<?=$_GET['id'];?>">確認</a>
         </button>
-        <button class="btn-warning">
-            <a href="?do=invoice_list">取消</a>
-        </button>
+        <Input Type="Button" Value="取消" onClick="top.close(); " class="btn-warning">
     </div>
 </div>

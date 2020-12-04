@@ -3,6 +3,7 @@
 
     $pdo->exec("delete from invoices where id='{$_GET['id']}'");
 
-    header("location:../default.php?do=invoice_list");
-
 ?>
+<body onload="top.close();">
+
+</body>
