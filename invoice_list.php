@@ -83,7 +83,11 @@ else if(isset($_GET['pd'])){
         $underpage=$_GET['pageitems']-2;
         $abovepage=$_GET['pageitems']+2;
         if(($_GET['pageitems']+2)>$pagecount){
-            $underpage=$pagecount-4;
+            if(($pagecount-4)<0){
+                $underpage=1;
+            }else{
+                $underpage=$pagecount-4;
+            }
             $abovepage=$pagecount;
         }
     }
