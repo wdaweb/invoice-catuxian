@@ -71,10 +71,15 @@ else if(isset($_GET['pd'])){
     <?php
             
         }
-    ?>
+        ?>
 </table>
 <ul class="pagination mx-auto">
-<?php
+    <?php
+    $pre=$_GET['pageitems']-1;
+    $next=$_GET['pageitems']+1;
+        if($pre>0){
+            echo "<li class='page-item'><a href='?pageitems={$pre}&do=invoice_list' class='page-link'>上一頁</a></li>";
+        }
     $pagecount=ceil(count($rows)/10);//判斷需要印出的列數
     if(!isset($_GET['pageitems'])){
         $_GET['pageitems']=1;
@@ -98,5 +103,8 @@ else if(isset($_GET['pd'])){
     for($i=$underpage;$i<=$abovepage&&$i<=$pagecount;$i++){
         echo "<li class='page-item'><a href='?pageitems={$i}&do=invoice_list' class='page-link'>{$i}</a></li>";
     }
+    
+    echo "<li class='page-item'><a href='?pageitems={$next}&do=invoice_list' class='page-link'>下一頁</a></li>";
+    
 ?>
 </ul>
