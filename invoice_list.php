@@ -75,6 +75,9 @@ else if(isset($_GET['pd'])){
 </table>
 <ul class="pagination mx-auto">
     <?php
+    if(!isset($_GET['pageitems'])){
+        $_GET['pageitems']=1;
+    }
     $pre=$_GET['pageitems']-1;
     $next=$_GET['pageitems']+1;
         if($pre>0){
